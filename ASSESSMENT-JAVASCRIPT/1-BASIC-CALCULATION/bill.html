@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Simple Billing System</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(to right, #b9f3fa, #b3b3b3);
+       font-family: "Roboto", sans-serif;
+    }
+
+    h3 {
+      font-weight: bold;
+      color: #000000;
+      background-color: #ebebeb;
+      border: 3px solid #1b1b1b;
+    }
+
+    label {
+      font-weight: 600;
+      margin-right: 8px;
+      color: #000000;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      width: 150px;
+      padding: 6px;
+      border-radius: 6px;
+      border: 2px solid #5d515f;
+    }
+
+    .billing-box {
+      max-width: 460px;
+      background: linear-gradient(to right, #b9f3fa, #b3b3b3);
+      padding: 20px;
+      border-radius: 16px;
+      border: 3px solid #000000;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-custom {
+      background-color: #4d4d4e;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .btn-custom:hover {
+      background-color: #f0eff0;
+      color: black;
+    }
+
+    .mall-title {
+      background-color: #bbd2d2;
+      color: #000000;
+      border: 2px solid #000000;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container my-3 p-3">
+  <h3 class="text-center p-3 rounded">Simple Billing System</h3>
+
+  <div class="d-flex justify-content-around p-3 mb-3 bg-light rounded shadow-sm">
+    <div>
+      <label>Customer Name:</label>
+      <input type="text" id="c_name" />
+    </div>
+    <div>
+      <label>Contact No:</label>
+      <input type="text" id="c_number" />
+    </div>
+    <div>
+      <label>Bill No:</label>
+      <input type="text" id="c_bill" />
+    </div>
+  </div>
+
+  <div class="bg-white border border-2 p-3 rounded mb-3">
+    <label>Bread (₹40):</label>
+    <input type="number" id="biscuits" /><br/><br/>
+    <label>Chocolate (₹120):</label>
+    <input type="number" id="chocolate" /><br/><br/>
+    <label>Milk (₹34):</label>
+    <input type="number" id="drink" />
+  </div>
+
+  <div class="billing-box mx-auto">
+    <div class="text-center mall-title p-2 mb-3">
+      <b>Amit-Mall</b>
+    </div>
+
+    <p>Customer name: <b id="c_name1"></b></p>
+    <p>Contact no: <b id="c_no1"></b></p>
+    <p>Bill no: <b id="c_bill1"></b></p>
+    <hr/>
+
+    <div class="row">
+      <div class="col-6">
+        <label>Item</label><br/>
+        Biscuits<br/><br/>
+        Chocolate<br/><br/>
+        Cold Drink
+      </div>
+      <div class="col-3">
+        <label>Qty</label><br/>
+        <b id="biscuits1"></b><br/><br/>
+        <b id="chocolate1"></b><br/><br/>
+        <b id="drink1"></b>
+      </div>
+      <div class="col-3">
+        <label>Price</label><br/>
+        <b id="biscuits2"></b><br/><br/>
+        <b id="chocolate2"></b><br/><br/>
+        <b id="drink2"></b>
+      </div>
+    </div>
+
+    <hr/>
+    <p>Subtotal: <b id="subtotal"></b></p>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-custom" id="bill">Generate Bill</button>
+  </div>
+</div>
+</body>
+
+<script>
+
+document.getElementById("bill").onclick = function () 
+{
+    // Get inputs
+    let c_name = document.getElementById("c_name").value;
+    let c_number = document.getElementById("c_number").value;
+    let c_bill = document.getElementById("c_bill").value;
+
+    let biscuits = Number(document.getElementById("biscuits").value);
+    let chocolate = Number(document.getElementById("chocolate").value);
+    let drink = Number(document.getElementById("drink").value);
+
+    // Calculate item prices
+    let biscuitsPrice = biscuits * 15;
+    let chocolatePrice = chocolate * 25;
+    let drinkPrice = drink * 30;
+
+    // Subtotal, GST, Discount, Grand Total
+    let subtotal = biscuitsPrice + chocolatePrice + drinkPrice;
+
+    // Display customer info
+    document.getElementById("c_name1").innerHTML = c_name;
+    document.getElementById("c_no1").innerHTML = c_number;
+    document.getElementById("c_bill1").innerHTML = c_bill;
+
+    // Display item qty
+    document.getElementById("biscuits1").innerHTML = biscuits;
+    document.getElementById("chocolate1").innerHTML = chocolate;
+    document.getElementById("drink1").innerHTML = drink;
+
+    // Display item prices
+    document.getElementById("biscuits2").innerHTML = "₹" + biscuitsPrice;
+    document.getElementById("chocolate2").innerHTML = "₹" + chocolatePrice;
+    document.getElementById("drink2").innerHTML = "₹" + drinkPrice;
+
+    // Display totals
+    document.getElementById("subtotal").innerHTML = "₹" + subtotal;
+    document.getElementById("gst").innerHTML = "₹" + gst;
+    document.getElementById("discount").innerHTML = "₹" + discount;
+    document.getElementById("grandtotal").innerHTML = "₹" + grandtotal;
+};
+
+</script>
+
+</html>

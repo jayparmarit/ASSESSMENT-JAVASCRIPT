@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary Calculator</title>
+</head>
+<body style="font-family: Arial; background-color: #f0f8ff; padding: 30px;">
+
+  <h2 style="color: #2c3e50;">💼 Salary Breakdown</h2>
+
+</body>
+
+<script>
+
+    document.write("<div style='background-color: #fff; padding: 20px; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.1);'>");
+    
+    let basic = Number(prompt("Enter your basic salary:"));
+
+    let tax = (5 / 100) * basic;
+    let pf = (10 / 100) * basic;
+    let hra = (12 / 100) * basic;
+    let bonus = (8 / 100) * basic;
+    let medical = (4 / 100) * basic;
+
+    let inHand = basic + hra + bonus + medical - tax - pf;
+
+    document.write("Basic Salary: ₹" + basic + "<br>");
+    document.write("HRA (12%): ₹" + hra + "<br>");
+    document.write("Bonus (8%): ₹" + bonus + "<br>");
+    document.write("Medical Allowance (4%): ₹" + medical + "<br>");
+    document.write("Tax (5%): ₹" + tax + "<br>");
+    document.write("PF (10%): ₹" + pf + "<br><hr>");
+    document.write("<b>In-Hand Salary: ₹" + inHand + "</b>");
+</script>
+
+
+</html>
