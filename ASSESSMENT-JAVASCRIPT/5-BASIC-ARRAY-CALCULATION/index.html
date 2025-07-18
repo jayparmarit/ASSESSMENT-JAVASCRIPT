@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic arr calculation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>User Array Input + Functions</title>
+  <style>
+    body { font-family: Arial; background: #f0f8ff; padding: 20px; }
+    input, button { margin: 5px; padding: 10px; }
+    #output, #arrayDisplay { font-size: 18px; margin-top: 10px; color: #2c3e50; }
+  </style>
+</head>
+<body>
+
+  <h2>🔢 Array Function</h2>
+
+  <label>🔹 Enter array :</label><br>
+  <input type="text" id="arrayInput" placeholder="e.g. 1,2,3,4">
+  <button onclick="setArray()" class="rounded btn border">Set Array</button><br>
+
+  <label>🔹 Enter single value:</label><br>
+  <input type="number" id="singleValue" placeholder="e.g. 5">
+
+  <p><strong>Current Array:</strong> <span id="arrayDisplay"></span></p>
+
+  <div>
+    <button onclick="pushItem()" class="rounded btn border">Push</button>
+    <button onclick="popItem()"  class="rounded btn border">Pop</button>
+    <button onclick="shiftItem()"  class="rounded btn border">Shift</button>
+    <button onclick="unshiftItem()"  class="rounded btn border">Unshift</button>
+    <button onclick="spliceItem()"  class="rounded btn border">Splice at index 1</button>
+  </div>
+
+  <div>
+    <button onclick="mapDouble()" class="rounded btn border">Map (x2)</button>
+    <button onclick="filterEven()" class="rounded btn border">Filter Even</button>
+    <button onclick="checkIncludes()" class="rounded btn border">Includes 3?</button>
+    <button onclick="findIndex4()" class="rounded btn border">FindIndex > 4</button>
+    <button onclick="everyPositive()" class="rounded btn border">Every > 0?</button>
+    <button onclick="someGreaterThan5()" class="rounded btn border">Some > 5?</button>
+  </div>
+
+  <div id="output"></div>
+    
+</body>
+<script src="script.js"></script>
+</html>
